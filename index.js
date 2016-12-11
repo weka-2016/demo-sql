@@ -3,10 +3,9 @@ var knex = require('knex')(config)
 
 
 
-knex.raw('SELECT * FROM cats where id = ?', [1])
-  .then( response => console.log(response))
-
-
 knex.raw('SELECT * FROM cats')
-  .then( response => console.log(response))
+  .then( response => {
+    console.log(response)
+    knex.destroy()
+  })
 
